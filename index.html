@@ -47,6 +47,23 @@
       align-items: center;
       gap: 10px;
       flex-shrink: 0;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      padding: 6px 8px;
+      margin: -6px -8px;
+      border-radius: 12px;
+      transition: background 0.2s, transform 0.2s;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    .logo:hover {
+      background: #eef2f6;
+    }
+
+    .logo:active {
+      transform: scale(0.97);
     }
 
     .logo-icon {
@@ -61,6 +78,11 @@
       font-weight: 700;
       font-size: 18px;
       flex-shrink: 0;
+      transition: background 0.2s;
+    }
+
+    .logo:hover .logo-icon {
+      background: #0f2a44;
     }
 
     .logo-text h1 {
@@ -69,6 +91,7 @@
       letter-spacing: -0.5px;
       color: #1e3a5f;
       line-height: 1.1;
+      transition: color 0.2s;
     }
 
     .logo-text span {
@@ -99,7 +122,6 @@
     .menu-toggle:hover { background: #0f2a44; }
     .menu-toggle:active { transform: scale(0.95); }
 
-    /* Nav desktop */
     nav {
       display: flex;
       gap: 8px;
@@ -137,8 +159,11 @@
       white-space: nowrap;
       min-height: 44px;
       font-size: 14px;
+      text-decoration: none;
+      transition: background 0.2s;
     }
 
+    .hotline-header:hover { background: #e2e8f0; }
     .hotline-header i { color: #1e3a5f; }
 
     /* ============ MAIN ============ */
@@ -496,7 +521,7 @@
       gap: 6px;
     }
 
-    /* ============ TABLET (<= 900px) ============ */
+    /* ============ TABLET ============ */
     @media (max-width: 900px) {
       .hero {
         grid-template-columns: 1fr;
@@ -515,11 +540,10 @@
       .hero-content h2 { font-size: 36px; }
     }
 
-    /* ============ MOBILE (<= 768px) ============ */
+    /* ============ MOBILE ============ */
     @media (max-width: 768px) {
       #app { padding: 0 16px 32px; }
 
-      /* Header mobile: hamburger + logo + hotline icon */
       header {
         flex-wrap: wrap;
         padding: 12px 0;
@@ -538,13 +562,10 @@
         font-size: 13px;
       }
 
-      .hotline-header span { display: none; } /* Ẩn chữ nếu cần, chỉ hiện icon nếu màn quá nhỏ */
-
       .logo { order: 1; }
       .logo-text h1 { font-size: 18px; }
       .logo-text span { font-size: 10px; }
 
-      /* Nav mobile: dropdown */
       nav {
         order: 4;
         width: 100%;
@@ -576,7 +597,6 @@
 
       nav a i { width: 20px; }
 
-      /* Typography mobile */
       .hero-content h2 { font-size: 28px; letter-spacing: -0.5px; }
       .hero-content p { font-size: 15px; margin-bottom: 24px; }
       .hero-image { height: 240px; border-radius: 20px; }
@@ -586,21 +606,17 @@
       .hero .btn { width: 100%; }
       .hero > .hero-content > div { flex-direction: column; }
 
-      /* Stats */
       .stat-item { padding: 20px 16px; }
       .stat-number { font-size: 30px; }
 
-      /* Services */
       .services-grid { grid-template-columns: 1fr; gap: 18px; }
       .service-img { height: 180px; }
       .service-content { padding: 20px; }
       .service-content h3 { font-size: 18px; }
 
-      /* Projects */
       .projects-grid { grid-template-columns: 1fr; gap: 16px; }
       .project-item { height: 260px; }
 
-      /* Contact */
       .contact-info { padding: 22px; border-radius: 22px; }
       .contact-info h2 { font-size: 20px; }
       .contact-detail { padding: 12px; gap: 12px; }
@@ -608,7 +624,6 @@
       .contact-detail .value { font-size: 14px; }
       .contact-map { min-height: 220px; border-radius: 22px; }
 
-      /* Footer */
       footer {
         flex-direction: column;
         text-align: center;
@@ -619,7 +634,7 @@
       .footer-hotline { justify-content: center; gap: 16px; }
     }
 
-    /* ============ SMALL MOBILE (<= 380px) ============ */
+    /* ============ SMALL MOBILE ============ */
     @media (max-width: 380px) {
       .logo-icon { width: 40px; height: 40px; font-size: 16px; }
       .logo-text h1 { font-size: 16px; }
@@ -630,7 +645,6 @@
       .btn { padding: 12px 20px; font-size: 14px; }
     }
 
-    /* Hỗ trợ thiết bị xoay ngang */
     @media (max-width: 900px) and (orientation: landscape) {
       .hero-image { height: 280px; }
     }
@@ -644,7 +658,8 @@
   <div id="app">
     <!-- Header -->
     <header>
-      <div class="logo">
+      <!-- Chỉ thêm id="logoBtn" để JS bắt sự kiện, KHÔNG sửa CSS -->
+      <div class="logo" id="logoBtn" role="button" tabindex="0" aria-label="Về trang chủ">
         <div class="logo-icon">HMB</div>
         <div class="logo-text">
           <h1>HMB Agency</h1>
@@ -652,9 +667,9 @@
         </div>
       </div>
 
-      <div class="hotline-header">
+      <a href="tel:0855555140" class="hotline-header">
         <i class="fas fa-phone-alt"></i> <span>0855 555 140</span>
-      </div>
+      </a>
 
       <button class="menu-toggle" id="menuToggle" aria-label="Mở menu">
         <i class="fas fa-bars"></i>
@@ -890,11 +905,33 @@
     const mainContent = document.getElementById('main-content');
     const mainNav = document.getElementById('main-nav');
     const menuToggle = document.getElementById('menuToggle');
+    const logoBtn = document.getElementById('logoBtn');
 
     function closeMenu() {
       mainNav.classList.remove('open');
       menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
     }
+
+    // Hàm điều hướng về trang chủ khi bấm logo
+    function goHome() {
+      if (window.location.hash === '#home' || window.location.hash === '') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        window.location.hash = 'home';
+      }
+      closeMenu();
+    }
+
+    // Bắt sự kiện click cho logo (PC + mobile)
+    logoBtn.addEventListener('click', goHome);
+
+    // Hỗ trợ bàn phím: Enter/Space khi logo được focus
+    logoBtn.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        goHome();
+      }
+    });
 
     function renderPage() {
       const hash = window.location.hash.substring(1) || 'home';
@@ -909,7 +946,6 @@
         }
       });
 
-      // Gắn sự kiện cho các nút data-page-link
       document.querySelectorAll('[data-page-link]').forEach(btn => {
         btn.addEventListener('click', (e) => {
           e.preventDefault();
@@ -919,14 +955,10 @@
         });
       });
 
-      // Đóng menu mobile khi render trang mới
       closeMenu();
-
-      // Cuộn lên đầu
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Toggle menu mobile
     menuToggle.addEventListener('click', () => {
       const isOpen = mainNav.classList.toggle('open');
       menuToggle.innerHTML = isOpen
@@ -934,7 +966,6 @@
         : '<i class="fas fa-bars"></i>';
     });
 
-    // Click vào link nav
     document.querySelectorAll('#main-nav a').forEach(link => {
       link.addEventListener('click', (e) => {
         e.preventDefault();
@@ -944,7 +975,6 @@
       });
     });
 
-    // Đóng menu khi click ra ngoài (chỉ mobile)
     document.addEventListener('click', (e) => {
       if (window.innerWidth <= 768) {
         if (!mainNav.contains(e.target) && !menuToggle.contains(e.target)) {
@@ -953,7 +983,6 @@
       }
     });
 
-    // Đóng menu khi resize lên desktop
     window.addEventListener('resize', () => {
       if (window.innerWidth > 768) {
         closeMenu();
