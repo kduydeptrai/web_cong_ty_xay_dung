@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>HMB Agency | Thầu xây dựng & Thiết kế</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f8fafc;
+      color: #0f172a;
+      line-height: 1.5;
+      overflow-x: hidden;
+      font-size: 16px;
+    }
+
+    #app {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 20px 40px;
+    }
+
+    /* ============ HEADER ============ */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      border-bottom: 1px solid #e2e8f0;
+      gap: 16px;
+      position: relative;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .logo-icon {
+      background: #1e3a5f;
+      color: white;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .logo-text h1 {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: #1e3a5f;
+      line-height: 1.1;
+    }
+
+    .logo-text span {
+      font-size: 11px;
+      font-weight: 500;
+      color: #64748b;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* Nút hamburger */
+    .menu-toggle {
+      display: none;
+      background: #1e3a5f;
+      color: white;
+      border: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      font-size: 20px;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+      flex-shrink: 0;
+    }
+
+    .menu-toggle:hover { background: #0f2a44; }
+    .menu-toggle:active { transform: scale(0.95); }
+
+    /* Nav desktop */
+    nav {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #334155;
+      font-weight: 500;
+      padding: 10px 16px;
+      border-radius: 40px;
+      transition: all 0.2s;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      min-height: 44px;
+    }
+
+    nav a i { font-size: 14px; }
+    nav a:hover { background: #eef2f6; color: #1e3a5f; }
+    nav a.active { background: #1e3a5f; color: white; }
+
+    .hotline-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #f1f5f9;
+      padding: 10px 16px;
+      border-radius: 40px;
+      font-weight: 600;
+      color: #1e3a5f;
+      white-space: nowrap;
+      min-height: 44px;
+      font-size: 14px;
+    }
+
+    .hotline-header i { color: #1e3a5f; }
+
+    /* ============ MAIN ============ */
+    main {
+      min-height: 70vh;
+      padding: 32px 0;
+    }
+
+    .page {
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ============ HERO ============ */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      margin-bottom: 48px;
+    }
+
+    .hero-content h2 {
+      font-size: 44px;
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -1px;
+      color: #0f172a;
+      margin-bottom: 20px;
+    }
+
+    .hero-content h2 span {
+      color: #1e3a5f;
+      border-bottom: 4px solid #fbbf24;
+    }
+
+    .hero-content p {
+      font-size: 17px;
+      color: #475569;
+      margin-bottom: 28px;
+      max-width: 500px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: #1e3a5f;
+      color: white;
+      padding: 14px 26px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 15px;
+      box-shadow: 0 8px 20px rgba(30, 58, 95, 0.15);
+      min-height: 48px;
+      font-family: inherit;
+    }
+
+    .btn:hover {
+      background: #0f2a44;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(30, 58, 95, 0.2);
+    }
+
+    .btn:active { transform: translateY(0); }
+
+    .btn-outline {
+      background: transparent;
+      color: #1e3a5f;
+      border: 2px solid #1e3a5f;
+      box-shadow: none;
+    }
+
+    .btn-outline:hover {
+      background: #1e3a5f;
+      color: white;
+    }
+
+    .hero-image {
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      height: 400px;
+      background: #cbd5e1;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s;
+    }
+
+    /* ============ STATS ============ */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin: 48px 0;
+    }
+
+    .stat-item {
+      background: white;
+      padding: 26px 20px;
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+      text-align: center;
+      border: 1px solid #e9eef3;
+    }
+
+    .stat-number {
+      font-size: 36px;
+      font-weight: 700;
+      color: #1e3a5f;
+    }
+
+    .stat-label {
+      color: #64748b;
+      font-weight: 500;
+      margin-top: 6px;
+      font-size: 14px;
+    }
+
+    /* ============ SECTION ============ */
+    .section-title {
+      font-size: 34px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      color: #0f172a;
+      letter-spacing: -0.5px;
+      line-height: 1.2;
+    }
+
+    .section-sub {
+      color: #64748b;
+      font-size: 17px;
+      margin-bottom: 40px;
+      max-width: 600px;
+    }
+
+    /* ============ SERVICES ============ */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 26px;
+      margin-bottom: 48px;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s;
+      border: 1px solid #e9eef3;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 25px 40px -12px rgba(30, 58, 95, 0.25);
+    }
+
+    .service-img {
+      height: 200px;
+      background: #d9e2ec;
+      overflow: hidden;
+    }
+
+    .service-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .service-content {
+      padding: 24px;
+      flex: 1;
+    }
+
+    .service-content i {
+      font-size: 26px;
+      color: #1e3a5f;
+      margin-bottom: 14px;
+    }
+
+    .service-content h3 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #0f172a;
+    }
+
+    .service-content p {
+      color: #475569;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    /* ============ PROJECTS ============ */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 22px;
+      margin-bottom: 48px;
+    }
+
+    .project-item {
+      border-radius: 24px;
+      overflow: hidden;
+      position: relative;
+      height: 320px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s;
+    }
+
+    .project-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s;
+    }
+
+    .project-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+      padding: 22px 18px 18px;
+      color: white;
+    }
+
+    .project-overlay h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .project-overlay p {
+      font-size: 13px;
+      opacity: 0.9;
+    }
+
+    /* ============ CONTACT ============ */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin: 32px 0;
+    }
+
+    .contact-info {
+      background: white;
+      padding: 32px;
+      border-radius: 28px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e9eef3;
+    }
+
+    .contact-info h2 {
+      font-size: 24px;
+      margin-bottom: 22px;
+      color: #0f172a;
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 14px;
+      padding: 14px;
+      background: #f8fafc;
+      border-radius: 18px;
+      transition: all 0.2s;
+    }
+
+    .contact-detail:hover { background: #eef2f6; }
+
+    .contact-detail i {
+      font-size: 22px;
+      color: #1e3a5f;
+      width: 40px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .contact-detail .label {
+      font-size: 13px;
+      color: #64748b;
+      font-weight: 500;
+    }
+
+    .contact-detail .value {
+      font-weight: 600;
+      color: #0f172a;
+      font-size: 15px;
+      word-break: break-word;
+    }
+
+    .contact-map {
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+      min-height: 400px;
+      background: #cbd5e1;
+    }
+
+    .contact-map img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ============ FOOTER ============ */
+    footer {
+      margin-top: 48px;
+      padding: 32px 0 20px;
+      border-top: 1px solid #e2e8f0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      color: #64748b;
+      font-size: 14px;
+    }
+
+    .footer-hotline {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-hotline a {
+      color: #1e3a5f;
+      text-decoration: none;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ============ TABLET (<= 900px) ============ */
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 32px;
+      }
+      .hero-content p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .hero-image { height: 320px; }
+      .stats { grid-template-columns: 1fr; gap: 16px; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .contact-map { min-height: 280px; }
+      .section-title { font-size: 30px; }
+      .hero-content h2 { font-size: 36px; }
+    }
+
+    /* ============ MOBILE (<= 768px) ============ */
+    @media (max-width: 768px) {
+      #app { padding: 0 16px 32px; }
+
+      /* Header mobile: hamburger + logo + hotline icon */
+      header {
+        flex-wrap: wrap;
+        padding: 12px 0;
+        gap: 12px;
+      }
+
+      .menu-toggle {
+        display: flex;
+        order: 3;
+        margin-left: auto;
+      }
+
+      .hotline-header {
+        order: 2;
+        padding: 8px 12px;
+        font-size: 13px;
+      }
+
+      .hotline-header span { display: none; } /* Ẩn chữ nếu cần, chỉ hiện icon nếu màn quá nhỏ */
+
+      .logo { order: 1; }
+      .logo-text h1 { font-size: 18px; }
+      .logo-text span { font-size: 10px; }
+
+      /* Nav mobile: dropdown */
+      nav {
+        order: 4;
+        width: 100%;
+        flex-direction: column;
+        gap: 4px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease, padding 0.3s ease;
+        background: white;
+        border-radius: 16px;
+        padding: 0;
+      }
+
+      nav.open {
+        max-height: 400px;
+        padding: 8px;
+        margin-top: 8px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        border: 1px solid #e9eef3;
+      }
+
+      nav a {
+        width: 100%;
+        padding: 14px 16px;
+        border-radius: 12px;
+        font-size: 15px;
+        justify-content: flex-start;
+      }
+
+      nav a i { width: 20px; }
+
+      /* Typography mobile */
+      .hero-content h2 { font-size: 28px; letter-spacing: -0.5px; }
+      .hero-content p { font-size: 15px; margin-bottom: 24px; }
+      .hero-image { height: 240px; border-radius: 20px; }
+      .section-title { font-size: 26px; }
+      .section-sub { font-size: 15px; margin-bottom: 28px; }
+
+      .hero .btn { width: 100%; }
+      .hero > .hero-content > div { flex-direction: column; }
+
+      /* Stats */
+      .stat-item { padding: 20px 16px; }
+      .stat-number { font-size: 30px; }
+
+      /* Services */
+      .services-grid { grid-template-columns: 1fr; gap: 18px; }
+      .service-img { height: 180px; }
+      .service-content { padding: 20px; }
+      .service-content h3 { font-size: 18px; }
+
+      /* Projects */
+      .projects-grid { grid-template-columns: 1fr; gap: 16px; }
+      .project-item { height: 260px; }
+
+      /* Contact */
+      .contact-info { padding: 22px; border-radius: 22px; }
+      .contact-info h2 { font-size: 20px; }
+      .contact-detail { padding: 12px; gap: 12px; }
+      .contact-detail i { font-size: 18px; width: 32px; }
+      .contact-detail .value { font-size: 14px; }
+      .contact-map { min-height: 220px; border-radius: 22px; }
+
+      /* Footer */
+      footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+        padding: 24px 0 16px;
+        font-size: 13px;
+      }
+      .footer-hotline { justify-content: center; gap: 16px; }
+    }
+
+    /* ============ SMALL MOBILE (<= 380px) ============ */
+    @media (max-width: 380px) {
+      .logo-icon { width: 40px; height: 40px; font-size: 16px; }
+      .logo-text h1 { font-size: 16px; }
+      .logo-text span { display: none; }
+      .hotline-header { padding: 8px 10px; font-size: 12px; }
+      .hero-content h2 { font-size: 24px; }
+      .section-title { font-size: 22px; }
+      .btn { padding: 12px 20px; font-size: 14px; }
+    }
+
+    /* Hỗ trợ thiết bị xoay ngang */
+    @media (max-width: 900px) and (orientation: landscape) {
+      .hero-image { height: 280px; }
+    }
+
+    .text-center { text-align: center; }
+    .mt-4 { margin-top: 40px; }
+    .mb-4 { margin-bottom: 40px; }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!-- Header -->
+    <header>
+      <div class="logo">
+        <div class="logo-icon">HMB</div>
+        <div class="logo-text">
+          <h1>HMB Agency</h1>
+          <span>Thầu xây dựng & thiết kế</span>
+        </div>
+      </div>
+
+      <div class="hotline-header">
+        <i class="fas fa-phone-alt"></i> <span>0855 555 140</span>
+      </div>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Mở menu">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <nav id="main-nav">
+        <a href="#" data-page="home" class="active"><i class="fas fa-home"></i> Trang chủ</a>
+        <a href="#" data-page="services"><i class="fas fa-hard-hat"></i> Dịch vụ</a>
+        <a href="#" data-page="projects"><i class="fas fa-building"></i> Dự án</a>
+        <a href="#" data-page="contact"><i class="fas fa-envelope"></i> Liên hệ</a>
+      </nav>
+    </header>
+
+    <main id="main-content"></main>
+
+    <footer>
+      <div>© 2025 HMB Agency. Thi công & thiết kế chuyên nghiệp.</div>
+      <div class="footer-hotline">
+        <a href="tel:0855555140"><i class="fas fa-phone"></i> 0855 555 140</a>
+        <a href="mailto:hmb.agency.group@gmail.com"><i class="fas fa-envelope"></i> hmb.agency.group@gmail.com</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const pages = {
+      home: `
+        <div class="page">
+          <div class="hero">
+            <div class="hero-content">
+              <h2>Xây dựng <span>tầm vóc</span><br>Kiến tạo <span>tương lai</span></h2>
+              <p>HMB Agency tự hào là đơn vị thầu xây dựng và thiết kế kiến trúc hàng đầu, mang đến giải pháp toàn diện từ ý tưởng đến công trình hoàn thiện.</p>
+              <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+                <a href="#" class="btn" data-page-link="contact"><i class="fas fa-phone-alt"></i> Liên hệ ngay</a>
+                <a href="#" class="btn btn-outline" data-page-link="projects"><i class="fas fa-eye"></i> Xem dự án</a>
+              </div>
+            </div>
+            <div class="hero-image">
+              <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Công trình xây dựng HMB">
+            </div>
+          </div>
+
+          <div class="stats">
+            <div class="stat-item">
+              <div class="stat-number">150+</div>
+              <div class="stat-label">Dự án hoàn thành</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">12+</div>
+              <div class="stat-label">Năm kinh nghiệm</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">98%</div>
+              <div class="stat-label">Khách hàng hài lòng</div>
+            </div>
+          </div>
+
+          <div style="margin: 48px 0;">
+            <h2 class="section-title">Tại sao chọn HMB Agency?</h2>
+            <p class="section-sub">Chúng tôi kết hợp kinh nghiệm thực tiễn với công nghệ thi công hiện đại, đảm bảo tiến độ và chất lượng vượt trội.</p>
+            <div class="services-grid">
+              <div class="service-card">
+                <div class="service-img"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Thi công"></div>
+                <div class="service-content">
+                  <i class="fas fa-trowel"></i>
+                  <h3>Thi công trọn gói</h3>
+                  <p>Nhận thầu từ móng đến hoàn thiện, quản lý chặt chẽ vật tư và nhân công.</p>
+                </div>
+              </div>
+              <div class="service-card">
+                <div class="service-img"><img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Thiết kế"></div>
+                <div class="service-content">
+                  <i class="fas fa-drafting-compass"></i>
+                  <h3>Thiết kế kiến trúc</h3>
+                  <p>Ý tưởng sáng tạo, tối ưu công năng, phù hợp phong thủy và ngân sách.</p>
+                </div>
+              </div>
+              <div class="service-card">
+                <div class="service-img"><img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Giám sát"></div>
+                <div class="service-content">
+                  <i class="fas fa-clipboard-check"></i>
+                  <h3>Giám sát & tư vấn</h3>
+                  <p>Đội ngũ kỹ sư giàu kinh nghiệm đảm bảo tiêu chuẩn kỹ thuật và an toàn.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      `,
+      services: `
+        <div class="page">
+          <h2 class="section-title">Dịch vụ của chúng tôi</h2>
+          <p class="section-sub">HMB Agency cung cấp giải pháp xây dựng và thiết kế toàn diện, đáp ứng mọi nhu cầu từ nhà ở dân dụng đến công trình thương mại.</p>
+
+          <div class="services-grid">
+            <div class="service-card">
+              <div class="service-img"><img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Thầu xây dựng"></div>
+              <div class="service-content">
+                <i class="fas fa-hard-hat"></i>
+                <h3>Thầu xây dựng dân dụng</h3>
+                <p>Thi công nhà phố, biệt thự, nhà cấp 4, cải tạo sửa chữa với chi phí tối ưu và bền vững theo thời gian.</p>
+              </div>
+            </div>
+            <div class="service-card">
+              <div class="service-img"><img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Thiết kế nội thất"></div>
+              <div class="service-content">
+                <i class="fas fa-couch"></i>
+                <h3>Thiết kế nội ngoại thất</h3>
+                <p>Kiến tạo không gian sống tiện nghi, thẩm mỹ, cá nhân hóa theo phong cách riêng của bạn.</p>
+              </div>
+            </div>
+            <div class="service-card">
+              <div class="service-img"><img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Công trình công nghiệp"></div>
+              <div class="service-content">
+                <i class="fas fa-industry"></i>
+                <h3>Công trình công nghiệp</h3>
+                <p>Nhà xưởng, kho bãi, nhà máy với kết cấu thép tiền chế, đảm bảo tiến độ và kỹ thuật.</p>
+              </div>
+            </div>
+            <div class="service-card">
+              <div class="service-img"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tư vấn giám sát"></div>
+              <div class="service-content">
+                <i class="fas fa-user-tie"></i>
+                <h3>Tư vấn giám sát</h3>
+                <p>Đảm bảo chất lượng công trình, kiểm soát khối lượng và tiến độ thi công chặt chẽ.</p>
+              </div>
+            </div>
+          </div>
+          <div style="text-align: center; margin-top: 32px;">
+            <a href="#" class="btn" data-page-link="contact"><i class="fas fa-paper-plane"></i> Yêu cầu báo giá</a>
+          </div>
+        </div>
+      `,
+      projects: `
+        <div class="page">
+          <h2 class="section-title">Dự án tiêu biểu</h2>
+          <p class="section-sub">Một số công trình HMB Agency đã thi công và thiết kế, nhận được đánh giá cao từ khách hàng.</p>
+
+          <div class="projects-grid">
+            <div class="project-item">
+              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Biệt thự Vinhomes">
+              <div class="project-overlay">
+                <h3>Biệt thự Vinhomes</h3>
+                <p>Thiết kế & thi công | 450m²</p>
+              </div>
+            </div>
+            <div class="project-item">
+              <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Nhà phố tân cổ điển">
+              <div class="project-overlay">
+                <h3>Nhà phố tân cổ điển</h3>
+                <p>Thi công trọn gói | Quận 7</p>
+              </div>
+            </div>
+            <div class="project-item">
+              <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Văn phòng công ty">
+              <div class="project-overlay">
+                <h3>Văn phòng công ty</h3>
+                <p>Thiết kế nội thất | 200m²</p>
+              </div>
+            </div>
+            <div class="project-item">
+              <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Nhà xưởng kết cấu thép">
+              <div class="project-overlay">
+                <h3>Nhà xưởng kết cấu thép</h3>
+                <p>KCN Long Hậu | 2000m²</p>
+              </div>
+            </div>
+            <div class="project-item">
+              <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cải tạo căn hộ">
+              <div class="project-overlay">
+                <h3>Cải tạo căn hộ</h3>
+                <p>Sunrise City | 90m²</p>
+              </div>
+            </div>
+            <div class="project-item">
+              <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Khách sạn boutique">
+              <div class="project-overlay">
+                <h3>Khách sạn boutique</h3>
+                <p>Thiết kế & thi công | Đà Lạt</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      `,
+      contact: `
+        <div class="page">
+          <h2 class="section-title">Liên hệ với HMB Agency</h2>
+          <p class="section-sub">Chúng tôi sẵn sàng lắng nghe và tư vấn cho dự án của bạn. Hãy gọi hotline hoặc gửi email để được hỗ trợ nhanh nhất.</p>
+
+          <div class="contact-grid">
+            <div class="contact-info">
+              <h2>Thông tin liên hệ</h2>
+              <div class="contact-detail">
+                <i class="fas fa-phone-alt"></i>
+                <div>
+                  <div class="label">Hotline</div>
+                  <div class="value">0855 555 140</div>
+                </div>
+              </div>
+              <div class="contact-detail">
+                <i class="fas fa-envelope"></i>
+                <div>
+                  <div class="label">Email</div>
+                  <div class="value">hmb.agency.group@gmail.com</div>
+                </div>
+              </div>
+              <div class="contact-detail">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                  <div class="label">Địa chỉ</div>
+                  <div class="value">123 Nguyễn Văn Linh, Quận 7, TP.HCM</div>
+                </div>
+              </div>
+              <div class="contact-detail">
+                <i class="fas fa-clock"></i>
+                <div>
+                  <div class="label">Giờ làm việc</div>
+                  <div class="value">Thứ 2 - Thứ 7: 8:00 - 18:00</div>
+                </div>
+              </div>
+              <div style="margin-top: 24px;">
+                <a href="tel:0855555140" class="btn" style="width: 100%;"><i class="fas fa-phone"></i> Gọi ngay</a>
+              </div>
+            </div>
+            <div class="contact-map">
+              <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Bản đồ văn phòng HMB">
+            </div>
+          </div>
+        </div>
+      `
+    };
+
+    const mainContent = document.getElementById('main-content');
+    const mainNav = document.getElementById('main-nav');
+    const menuToggle = document.getElementById('menuToggle');
+
+    function closeMenu() {
+      mainNav.classList.remove('open');
+      menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+    }
+
+    function renderPage() {
+      const hash = window.location.hash.substring(1) || 'home';
+      const pageContent = pages[hash] || pages.home;
+
+      mainContent.innerHTML = pageContent;
+
+      document.querySelectorAll('#main-nav a').forEach(link => {
+        link.classList.remove('active');
+        if (link.dataset.page === hash) {
+          link.classList.add('active');
+        }
+      });
+
+      // Gắn sự kiện cho các nút data-page-link
+      document.querySelectorAll('[data-page-link]').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const page = btn.dataset.pageLink;
+          window.location.hash = page;
+          closeMenu();
+        });
+      });
+
+      // Đóng menu mobile khi render trang mới
+      closeMenu();
+
+      // Cuộn lên đầu
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Toggle menu mobile
+    menuToggle.addEventListener('click', () => {
+      const isOpen = mainNav.classList.toggle('open');
+      menuToggle.innerHTML = isOpen
+        ? '<i class="fas fa-times"></i>'
+        : '<i class="fas fa-bars"></i>';
+    });
+
+    // Click vào link nav
+    document.querySelectorAll('#main-nav a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const page = link.dataset.page;
+        window.location.hash = page;
+        closeMenu();
+      });
+    });
+
+    // Đóng menu khi click ra ngoài (chỉ mobile)
+    document.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768) {
+        if (!mainNav.contains(e.target) && !menuToggle.contains(e.target)) {
+          closeMenu();
+        }
+      }
+    });
+
+    // Đóng menu khi resize lên desktop
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) {
+        closeMenu();
+      }
+    });
+
+    window.addEventListener('hashchange', renderPage);
+
+    if (!window.location.hash) {
+      window.location.hash = 'home';
+    } else {
+      renderPage();
+    }
+
+    window.addEventListener('load', renderPage);
+  </script>
+</body>
+</html>
