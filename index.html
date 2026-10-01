@@ -401,6 +401,153 @@
       opacity: 0.9;
     }
 
+    /* ============ TRANG CHI TIẾT ============ */
+    .detail-page {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: white;
+      color: #1e3a5f;
+      border: 1.5px solid #e2e8f0;
+      padding: 10px 18px;
+      border-radius: 40px;
+      font-weight: 500;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-bottom: 24px;
+      min-height: 44px;
+      font-family: inherit;
+      text-decoration: none;
+    }
+
+    .back-btn:hover {
+      background: #1e3a5f;
+      color: white;
+      border-color: #1e3a5f;
+    }
+
+    .back-btn:active { transform: scale(0.97); }
+
+    .detail-hero {
+      border-radius: 28px;
+      overflow: hidden;
+      height: 400px;
+      background: #cbd5e1;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      margin-bottom: 16px;
+    }
+
+    .detail-hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ===== 5 ẢNH NHỎ DƯỚI ẢNH CHÍNH ===== */
+    .detail-thumbs {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .detail-thumb {
+      border-radius: 14px;
+      overflow: hidden;
+      height: 80px;
+      background: #d9e2ec;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all 0.2s;
+    }
+
+    .detail-thumb:hover {
+      border-color: #1e3a5f;
+      transform: translateY(-2px);
+    }
+
+    .detail-thumb.active {
+      border-color: #1e3a5f;
+      box-shadow: 0 6px 16px rgba(30, 58, 95, 0.25);
+    }
+
+    .detail-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .detail-tag {
+      display: inline-block;
+      background: #eef2f6;
+      color: #1e3a5f;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 40px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .detail-title {
+      font-size: 38px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 20px;
+      letter-spacing: -0.8px;
+      line-height: 1.2;
+    }
+
+    .detail-body p {
+      color: #475569;
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 18px;
+    }
+
+    .detail-body ul {
+      list-style: none;
+      margin: 20px 0 28px;
+      padding: 0;
+    }
+
+    .detail-body ul li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 0;
+      color: #334155;
+      font-size: 16px;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .detail-body ul li:last-child { border-bottom: none; }
+
+    .detail-body ul li i {
+      color: #1e3a5f;
+      font-size: 16px;
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+
+    .detail-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 32px;
+      padding-top: 28px;
+      border-top: 1px solid #e2e8f0;
+    }
+
     /* ============ CONTACT ============ */
     .contact-layout {
       display: grid;
@@ -495,9 +642,7 @@
       margin-bottom: 24px;
     }
 
-    .form-group {
-      margin-bottom: 18px;
-    }
+    .form-group { margin-bottom: 18px; }
 
     .form-group label {
       display: block;
@@ -610,151 +755,6 @@
       gap: 6px;
     }
 
-    /* ============ MODAL ============ */
-    .modal-backdrop {
-      position: fixed;
-      inset: 0;
-      background: rgba(15, 23, 42, 0.65);
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
-      z-index: 999;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.25s ease, visibility 0.25s ease;
-    }
-
-    .modal-backdrop.open {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .modal {
-      background: white;
-      border-radius: 28px;
-      max-width: 720px;
-      width: 100%;
-      max-height: 90vh;
-      overflow-y: auto;
-      position: relative;
-      transform: translateY(20px) scale(0.96);
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      box-shadow: 0 25px 60px -12px rgba(0, 0, 0, 0.4);
-    }
-
-    .modal-backdrop.open .modal {
-      transform: translateY(0) scale(1);
-    }
-
-    .modal-close {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.95);
-      border: none;
-      cursor: pointer;
-      font-size: 18px;
-      color: #1e3a5f;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 10;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      transition: background 0.2s, transform 0.2s;
-    }
-
-    .modal-close:hover {
-      background: white;
-      transform: rotate(90deg);
-    }
-
-    .modal-close:active { transform: scale(0.92) rotate(90deg); }
-
-    .modal-image {
-      width: 100%;
-      height: 280px;
-      overflow: hidden;
-      background: #cbd5e1;
-      border-radius: 28px 28px 0 0;
-    }
-
-    .modal-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .modal-body {
-      padding: 32px;
-    }
-
-    .modal-body .modal-tag {
-      display: inline-block;
-      background: #eef2f6;
-      color: #1e3a5f;
-      font-size: 12px;
-      font-weight: 600;
-      padding: 6px 14px;
-      border-radius: 40px;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      margin-bottom: 14px;
-    }
-
-    .modal-body h3 {
-      font-size: 26px;
-      font-weight: 700;
-      color: #0f172a;
-      margin-bottom: 14px;
-      letter-spacing: -0.5px;
-      line-height: 1.25;
-    }
-
-    .modal-body p {
-      color: #475569;
-      font-size: 15px;
-      line-height: 1.7;
-      margin-bottom: 16px;
-    }
-
-    .modal-body ul {
-      list-style: none;
-      margin: 16px 0 24px;
-      padding: 0;
-    }
-
-    .modal-body ul li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      padding: 8px 0;
-      color: #334155;
-      font-size: 15px;
-    }
-
-    .modal-body ul li i {
-      color: #1e3a5f;
-      font-size: 14px;
-      margin-top: 4px;
-      flex-shrink: 0;
-    }
-
-    .modal-actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 8px;
-    }
-
-    body.modal-open { overflow: hidden; }
-
     /* ============ TABLET ============ */
     @media (max-width: 900px) {
       .hero {
@@ -768,15 +768,11 @@
       }
       .hero-image { height: 320px; }
       .stats { grid-template-columns: 1fr; gap: 16px; }
-
-      /* Liên hệ: form xuống dưới info */
-      .contact-layout {
-        grid-template-columns: 1fr;
-        gap: 24px;
-      }
-
+      .contact-layout { grid-template-columns: 1fr; gap: 24px; }
       .section-title { font-size: 30px; }
       .hero-content h2 { font-size: 36px; }
+      .detail-hero { height: 320px; }
+      .detail-title { font-size: 30px; }
     }
 
     /* ============ MOBILE ============ */
@@ -848,14 +844,53 @@
       .service-content h3 { font-size: 14px; margin-bottom: 6px; line-height: 1.3; }
       .service-content p { font-size: 12px; line-height: 1.5; }
 
-      .projects-grid { grid-template-columns: 1fr; gap: 16px; }
-      .project-item { height: 260px; }
-
-      /* Liên hệ: form xuống dưới */
-      .contact-layout {
-        grid-template-columns: 1fr;
+      /* ===== DỰ ÁN MOBILE: SO LE 2 BÊN, MỖI ẢNH 60% ===== */
+      .projects-grid {
+        display: flex;
+        flex-direction: column;
         gap: 20px;
+        margin-bottom: 40px;
       }
+
+      .project-item {
+        width: 60%;
+        height: 220px;
+      }
+
+      /* Các thẻ lẻ (1, 3, 5...) nằm bên trái */
+      .project-item:nth-child(odd) {
+        align-self: flex-start;
+        margin-left: 0;
+      }
+
+      /* Các thẻ chẵn (2, 4, 6...) nằm bên phải */
+      .project-item:nth-child(even) {
+        align-self: flex-end;
+        margin-right: 0;
+      }
+
+      /* ===== TRANG CHI TIẾT DỰ ÁN MOBILE ===== */
+      .detail-hero { height: 200px; border-radius: 20px; margin-bottom: 12px; }
+
+      .detail-thumbs {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 6px;
+        margin-bottom: 22px;
+      }
+
+      .detail-thumb {
+        height: 48px;
+        border-radius: 8px;
+      }
+
+      .detail-title { font-size: 24px; margin-bottom: 16px; }
+      .detail-body p { font-size: 15px; }
+      .detail-body ul li { font-size: 15px; }
+      .detail-actions { flex-direction: column; }
+      .detail-actions .btn { width: 100%; }
+      .back-btn { padding: 10px 16px; font-size: 13px; }
+
+      /* Liên hệ */
       .contact-info { padding: 22px; border-radius: 22px; }
       .contact-info h2 { font-size: 20px; }
       .contact-detail { padding: 12px; gap: 12px; }
@@ -866,9 +901,6 @@
       .contact-form-wrapper { padding: 22px; border-radius: 22px; }
       .contact-form-wrapper h2 { font-size: 20px; }
       .form-row { grid-template-columns: 1fr; gap: 0; }
-      .form-group input,
-      .form-group select,
-      .form-group textarea { font-size: 15px; }
 
       footer {
         flex-direction: column;
@@ -878,15 +910,6 @@
         font-size: 13px;
       }
       .footer-hotline { justify-content: center; gap: 16px; }
-
-      .modal { border-radius: 24px; max-height: 92vh; }
-      .modal-image { height: 200px; border-radius: 24px 24px 0 0; }
-      .modal-body { padding: 22px; }
-      .modal-body h3 { font-size: 20px; }
-      .modal-body p { font-size: 14px; }
-      .modal-body ul li { font-size: 14px; }
-      .modal-close { top: 12px; right: 12px; width: 36px; height: 36px; font-size: 16px; }
-      .modal-actions .btn { width: 100%; }
     }
 
     /* ============ SMALL MOBILE ============ */
@@ -900,6 +923,16 @@
       .service-content h3 { font-size: 13px; }
       .service-content p { font-size: 11px; }
       .service-img { height: 90px; }
+      .detail-title { font-size: 20px; }
+
+      /* Dự án mobile nhỏ: 65% */
+      .project-item {
+        width: 65%;
+        height: 190px;
+      }
+
+      .detail-hero { height: 170px; }
+      .detail-thumb { height: 40px; }
     }
 
     @media (max-width: 900px) and (orientation: landscape) {
@@ -911,7 +944,6 @@
 </head>
 <body>
   <div id="app">
-    <!-- Header: không có hotline -->
     <header>
       <div class="logo" id="logoBtn" role="button" tabindex="0" aria-label="Về trang chủ">
         <div class="logo-icon">HMB</div>
@@ -944,36 +976,25 @@
     </footer>
   </div>
 
-  <!-- MODAL -->
-  <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true">
-    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <button class="modal-close" id="modalClose" aria-label="Đóng">
-        <i class="fas fa-times"></i>
-      </button>
-      <div class="modal-image">
-        <img id="modalImg" src="" alt="">
-      </div>
-      <div class="modal-body">
-        <span class="modal-tag" id="modalTag">Chi tiết</span>
-        <h3 id="modalTitle"></h3>
-        <div id="modalContent"></div>
-        <div class="modal-actions">
-          <a href="tel:0855555140" class="btn"><i class="fas fa-phone-alt"></i> Gọi tư vấn</a>
-          <a href="#" class="btn btn-outline" id="modalContactBtn"><i class="fas fa-paper-plane"></i> Liên hệ</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <script>
-    // ====== DỮ LIỆU MODAL ======
-    const modalData = {
+    // ====== 5 ẢNH PHỤ DÙNG CHUNG (dùng lại ảnh có sẵn) ======
+    const galleryImages = [
+      'https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+      'https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+      'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
+    ];
+
+    // ====== DỮ LIỆU CHI TIẾT ======
+    const detailData = {
       'why-1': {
         tag: 'Thi công',
         title: 'Thi công trọn gói',
-        img: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+        img: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
         content: `
-          <p>HMB Agency nhận thầu thi công trọn gói từ móng đến hoàn thiện, giúp khách hàng tiết kiệm thời gian và công sức quản lý.</p>
+          <p>HMB Agency nhận thầu thi công trọn gói từ móng đến hoàn thiện, giúp khách hàng tiết kiệm thời gian và công sức quản lý. Với đội ngũ kỹ sư và công nhân lành nghề, chúng tôi cam kết mang đến công trình chất lượng cao, đúng tiến độ và tối ưu chi phí.</p>
+          <p>Quy trình làm việc chuyên nghiệp từ khảo sát, lên kế hoạch, báo giá đến thi công và bàn giao đều được kiểm soát chặt chẽ, minh bạch.</p>
           <ul>
             <li><i class="fas fa-check-circle"></i> Khảo sát, lên kế hoạch và báo giá minh bạch</li>
             <li><i class="fas fa-check-circle"></i> Quản lý vật tư, nhân công chặt chẽ</li>
@@ -985,9 +1006,10 @@
       'why-2': {
         tag: 'Thiết kế',
         title: 'Thiết kế kiến trúc',
-        img: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+        img: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
         content: `
-          <p>Đội ngũ kiến trúc sư HMB Agency mang đến những thiết kế sáng tạo, tối ưu công năng và phù hợp với ngân sách của bạn.</p>
+          <p>Đội ngũ kiến trúc sư HMB Agency mang đến những thiết kế sáng tạo, tối ưu công năng và phù hợp với ngân sách của bạn. Chúng tôi luôn lắng nghe nhu cầu và mong muốn của khách hàng để tạo ra không gian sống lý tưởng.</p>
+          <p>Mỗi bản vẽ đều được chăm chút tỉ mỉ, đảm bảo tính thẩm mỹ, công năng và phong thủy hài hòa.</p>
           <ul>
             <li><i class="fas fa-check-circle"></i> Tư vấn phong cách: hiện đại, tân cổ điển, tối giản...</li>
             <li><i class="fas fa-check-circle"></i> Bản vẽ 2D, 3D chi tiết, dễ hình dung</li>
@@ -999,9 +1021,10 @@
       'why-3': {
         tag: 'Giám sát',
         title: 'Giám sát & tư vấn',
-        img: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+        img: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
         content: `
-          <p>Đội ngũ kỹ sư giàu kinh nghiệm giám sát chặt chẽ từng hạng mục, đảm bảo công trình đạt tiêu chuẩn kỹ thuật và an toàn.</p>
+          <p>Đội ngũ kỹ sư giàu kinh nghiệm giám sát chặt chẽ từng hạng mục, đảm bảo công trình đạt tiêu chuẩn kỹ thuật và an toàn. Chúng tôi thay mặt chủ đầu tư kiểm soát chất lượng, khối lượng và tiến độ thi công.</p>
+          <p>Báo cáo định kỳ giúp chủ đầu tư luôn nắm rõ tình hình công trình dù không có mặt tại hiện trường.</p>
           <ul>
             <li><i class="fas fa-check-circle"></i> Kiểm tra chất lượng vật tư đầu vào</li>
             <li><i class="fas fa-check-circle"></i> Giám sát tiến độ từng giai đoạn</li>
@@ -1013,9 +1036,10 @@
       'sv-1': {
         tag: 'Dịch vụ',
         title: 'Thầu xây dựng dân dụng',
-        img: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+        img: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
         content: `
-          <p>Chuyên thi công nhà phố, biệt thự, nhà cấp 4 và cải tạo sửa chữa với chi phí tối ưu, bền vững theo thời gian.</p>
+          <p>HMB Agency chuyên thi công nhà phố, biệt thự, nhà cấp 4 và cải tạo sửa chữa với chi phí tối ưu, bền vững theo thời gian. Chúng tôi hiểu rằng mỗi ngôi nhà là một tổ ấm, vì vậy luôn đặt chất lượng lên hàng đầu.</p>
+          <p>Với hơn 12 năm kinh nghiệm trong lĩnh vực xây dựng dân dụng, chúng tôi tự tin đáp ứng mọi yêu cầu khắt khe nhất của khách hàng.</p>
           <ul>
             <li><i class="fas fa-check-circle"></i> Nhà phố, biệt thự, nhà vườn, nhà cấp 4</li>
             <li><i class="fas fa-check-circle"></i> Cải tạo, nâng tầng, sửa chữa nhà cũ</li>
@@ -1027,9 +1051,10 @@
       'sv-2': {
         tag: 'Dịch vụ',
         title: 'Thiết kế nội ngoại thất',
-        img: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+        img: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
         content: `
-          <p>Kiến tạo không gian sống tiện nghi, thẩm mỹ, cá nhân hóa theo phong cách riêng của bạn.</p>
+          <p>Kiến tạo không gian sống tiện nghi, thẩm mỹ, cá nhân hóa theo phong cách riêng của bạn. Đội ngũ thiết kế của HMB Agency luôn cập nhật xu hướng mới nhất để mang đến không gian sống hoàn hảo.</p>
+          <p>Từ căn hộ nhỏ đến biệt thự lớn, chúng tôi đều có giải pháp phù hợp, tối ưu công năng và ngân sách.</p>
           <ul>
             <li><i class="fas fa-check-circle"></i> Thiết kế nội thất căn hộ, nhà phố, biệt thự</li>
             <li><i class="fas fa-check-circle"></i> Thiết kế ngoại thất, sân vườn, tiểu cảnh</li>
@@ -1041,9 +1066,10 @@
       'sv-3': {
         tag: 'Dịch vụ',
         title: 'Công trình công nghiệp',
-        img: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+        img: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
         content: `
-          <p>Nhà xưởng, kho bãi, nhà máy với kết cấu thép tiền chế, đảm bảo tiến độ và kỹ thuật.</p>
+          <p>Nhà xưởng, kho bãi, nhà máy với kết cấu thép tiền chế, đảm bảo tiến độ và kỹ thuật. HMB Agency có kinh nghiệm thi công nhiều công trình công nghiệp quy mô lớn tại các khu công nghiệp phía Nam.</p>
+          <p>Chúng tôi cam kết tuân thủ nghiêm ngặt các tiêu chuẩn về PCCC, an toàn lao động và môi trường.</p>
           <ul>
             <li><i class="fas fa-check-circle"></i> Nhà xưởng kết cấu thép, bê tông</li>
             <li><i class="fas fa-check-circle"></i> Kho bãi, nhà máy quy mô lớn</li>
@@ -1055,9 +1081,10 @@
       'sv-4': {
         tag: 'Dịch vụ',
         title: 'Tư vấn giám sát',
-        img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+        img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
         content: `
-          <p>Đảm bảo chất lượng công trình, kiểm soát khối lượng và tiến độ thi công chặt chẽ.</p>
+          <p>Đảm bảo chất lượng công trình, kiểm soát khối lượng và tiến độ thi công chặt chẽ. Đội ngũ giám sát của HMB Agency giàu kinh nghiệm, làm việc chuyên nghiệp và trung thực.</p>
+          <p>Chúng tôi thay mặt chủ đầu tư giám sát mọi hạng mục, từ vật tư đầu vào đến từng công đoạn thi công.</p>
           <ul>
             <li><i class="fas fa-check-circle"></i> Giám sát thi công theo bản vẽ</li>
             <li><i class="fas fa-check-circle"></i> Kiểm soát khối lượng, vật tư</li>
@@ -1069,9 +1096,10 @@
       'pj-1': {
         tag: 'Dự án',
         title: 'Biệt thự Vinhomes',
-        img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+        img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
         content: `
-          <p>Thiết kế và thi công biệt thự cao cấp tại Vinhomes, diện tích 450m², phong cách tân cổ điển sang trọng.</p>
+          <p>Thiết kế và thi công biệt thự cao cấp tại Vinhomes, diện tích 450m², phong cách tân cổ điển sang trọng. Công trình được hoàn thiện đúng tiến độ, nhận được nhiều lời khen từ chủ đầu tư.</p>
+          <p>Đây là một trong những dự án tiêu biểu thể hiện năng lực thi công và gu thẩm mỹ của HMB Agency.</p>
           <ul>
             <li><i class="fas fa-check-circle"></i> Diện tích: 450m², 3 tầng + tum</li>
             <li><i class="fas fa-check-circle"></i> Phong cách: Tân cổ điển</li>
@@ -1083,9 +1111,10 @@
       'pj-2': {
         tag: 'Dự án',
         title: 'Nhà phố tân cổ điển',
-        img: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+        img: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
         content: `
-          <p>Thi công trọn gói nhà phố tại Quận 7, phong cách tân cổ điển, tối ưu công năng cho gia đình 4 người.</p>
+          <p>Thi công trọn gói nhà phố tại Quận 7, phong cách tân cổ điển, tối ưu công năng cho gia đình 4 người. Không gian sống thoáng mát, tiện nghi và đầy đủ công năng.</p>
+          <p>Chủ đầu tư đánh giá cao sự tỉ mỉ trong từng chi tiết và tiến độ thi công đúng cam kết.</p>
           <ul>
             <li><i class="fas fa-check-circle"></i> Diện tích: 5x18m, 1 trệt 3 lầu</li>
             <li><i class="fas fa-check-circle"></i> Phong cách: Tân cổ điển</li>
@@ -1097,9 +1126,10 @@
       'pj-3': {
         tag: 'Dự án',
         title: 'Văn phòng công ty',
-        img: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+        img: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
         content: `
-          <p>Thiết kế nội thất văn phòng làm việc 200m², phong cách hiện đại, tối ưu không gian làm việc nhóm.</p>
+          <p>Thiết kế nội thất văn phòng làm việc 200m², phong cách hiện đại, tối ưu không gian làm việc nhóm. Không gian làm việc chuyên nghiệp, thoải mái, truyền cảm hứng cho nhân viên.</p>
+          <p>HMB Agency đã khảo sát kỹ nhu cầu sử dụng để đưa ra giải pháp bố trí hợp lý nhất.</p>
           <ul>
             <li><i class="fas fa-check-circle"></i> Diện tích: 200m²</li>
             <li><i class="fas fa-check-circle"></i> Phong cách: Hiện đại, tối giản</li>
@@ -1111,9 +1141,10 @@
       'pj-4': {
         tag: 'Dự án',
         title: 'Nhà xưởng kết cấu thép',
-        img: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+        img: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
         content: `
-          <p>Thi công nhà xưởng kết cấu thép tại KCN Long Hậu, diện tích 2000m², đáp ứng tiêu chuẩn công nghiệp.</p>
+          <p>Thi công nhà xưởng kết cấu thép tại KCN Long Hậu, diện tích 2000m², đáp ứng tiêu chuẩn công nghiệp. Công trình được thi công nhanh chóng, đảm bảo kỹ thuật và an toàn.</p>
+          <p>Đây là dự án tiêu biểu cho mảng công trình công nghiệp của HMB Agency.</p>
           <ul>
             <li><i class="fas fa-check-circle"></i> Diện tích: 2000m²</li>
             <li><i class="fas fa-check-circle"></i> Kết cấu: Thép tiền chế</li>
@@ -1125,9 +1156,10 @@
       'pj-5': {
         tag: 'Dự án',
         title: 'Cải tạo căn hộ',
-        img: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+        img: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
         content: `
-          <p>Cải tạo căn hộ 90m² tại Sunrise City, mang lại không gian sống mới mẻ, tiện nghi và hiện đại.</p>
+          <p>Cải tạo căn hộ 90m² tại Sunrise City, mang lại không gian sống mới mẻ, tiện nghi và hiện đại. Từ một căn hộ cũ, chúng tôi đã biến hóa thành không gian sống đầy cảm hứng.</p>
+          <p>Chủ đầu tư rất hài lòng với kết quả và đã giới thiệu thêm nhiều khách hàng cho HMB Agency.</p>
           <ul>
             <li><i class="fas fa-check-circle"></i> Diện tích: 90m²</li>
             <li><i class="fas fa-check-circle"></i> Phong cách: Scandinavian</li>
@@ -1139,9 +1171,10 @@
       'pj-6': {
         tag: 'Dự án',
         title: 'Khách sạn boutique',
-        img: 'https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+        img: 'https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80',
         content: `
-          <p>Thiết kế và thi công khách sạn boutique tại Đà Lạt, phong cách ấm cúng, gần gũi thiên nhiên.</p>
+          <p>Thiết kế và thi công khách sạn boutique tại Đà Lạt, phong cách ấm cúng, gần gũi thiên nhiên. Công trình hòa mình vào thiên nhiên, mang đến trải nghiệm nghỉ dưỡng tuyệt vời cho du khách.</p>
+          <p>Đây là dự án tâm huyết của HMB Agency tại thành phố ngàn hoa.</p>
           <ul>
             <li><i class="fas fa-check-circle"></i> Quy mô: 20 phòng</li>
             <li><i class="fas fa-check-circle"></i> Phong cách: Rustic, gần gũi thiên nhiên</li>
@@ -1189,7 +1222,7 @@
             <h2 class="section-title">Tại sao chọn HMB Agency?</h2>
             <p class="section-sub">Chúng tôi kết hợp kinh nghiệm thực tiễn với công nghệ thi công hiện đại, đảm bảo tiến độ và chất lượng vượt trội.</p>
             <div class="services-grid">
-              <div class="service-card" data-modal="why-1">
+              <div class="service-card" data-detail="why-1">
                 <div class="service-img"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Thi công"></div>
                 <div class="service-content">
                   <i class="fas fa-trowel"></i>
@@ -1197,7 +1230,7 @@
                   <p>Nhận thầu từ móng đến hoàn thiện, quản lý chặt chẽ vật tư và nhân công.</p>
                 </div>
               </div>
-              <div class="service-card" data-modal="why-2">
+              <div class="service-card" data-detail="why-2">
                 <div class="service-img"><img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Thiết kế"></div>
                 <div class="service-content">
                   <i class="fas fa-drafting-compass"></i>
@@ -1205,7 +1238,7 @@
                   <p>Ý tưởng sáng tạo, tối ưu công năng, phù hợp phong thủy và ngân sách.</p>
                 </div>
               </div>
-              <div class="service-card" data-modal="why-3">
+              <div class="service-card" data-detail="why-3">
                 <div class="service-img"><img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Giám sát"></div>
                 <div class="service-content">
                   <i class="fas fa-clipboard-check"></i>
@@ -1223,7 +1256,7 @@
           <p class="section-sub">HMB Agency cung cấp giải pháp xây dựng và thiết kế toàn diện, đáp ứng mọi nhu cầu từ nhà ở dân dụng đến công trình thương mại.</p>
 
           <div class="services-grid">
-            <div class="service-card" data-modal="sv-1">
+            <div class="service-card" data-detail="sv-1">
               <div class="service-img"><img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Thầu xây dựng"></div>
               <div class="service-content">
                 <i class="fas fa-hard-hat"></i>
@@ -1231,7 +1264,7 @@
                 <p>Thi công nhà phố, biệt thự, nhà cấp 4, cải tạo sửa chữa với chi phí tối ưu và bền vững theo thời gian.</p>
               </div>
             </div>
-            <div class="service-card" data-modal="sv-2">
+            <div class="service-card" data-detail="sv-2">
               <div class="service-img"><img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Thiết kế nội thất"></div>
               <div class="service-content">
                 <i class="fas fa-couch"></i>
@@ -1239,7 +1272,7 @@
                 <p>Kiến tạo không gian sống tiện nghi, thẩm mỹ, cá nhân hóa theo phong cách riêng của bạn.</p>
               </div>
             </div>
-            <div class="service-card" data-modal="sv-3">
+            <div class="service-card" data-detail="sv-3">
               <div class="service-img"><img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Công trình công nghiệp"></div>
               <div class="service-content">
                 <i class="fas fa-industry"></i>
@@ -1247,7 +1280,7 @@
                 <p>Nhà xưởng, kho bãi, nhà máy với kết cấu thép tiền chế, đảm bảo tiến độ và kỹ thuật.</p>
               </div>
             </div>
-            <div class="service-card" data-modal="sv-4">
+            <div class="service-card" data-detail="sv-4">
               <div class="service-img"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tư vấn giám sát"></div>
               <div class="service-content">
                 <i class="fas fa-user-tie"></i>
@@ -1267,42 +1300,42 @@
           <p class="section-sub">Một số công trình HMB Agency đã thi công và thiết kế, nhận được đánh giá cao từ khách hàng.</p>
 
           <div class="projects-grid">
-            <div class="project-item" data-modal="pj-1">
+            <div class="project-item" data-detail="pj-1">
               <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Biệt thự Vinhomes">
               <div class="project-overlay">
                 <h3>Biệt thự Vinhomes</h3>
                 <p>Thiết kế & thi công | 450m²</p>
               </div>
             </div>
-            <div class="project-item" data-modal="pj-2">
+            <div class="project-item" data-detail="pj-2">
               <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Nhà phố tân cổ điển">
               <div class="project-overlay">
                 <h3>Nhà phố tân cổ điển</h3>
                 <p>Thi công trọn gói | Quận 7</p>
               </div>
             </div>
-            <div class="project-item" data-modal="pj-3">
+            <div class="project-item" data-detail="pj-3">
               <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Văn phòng công ty">
               <div class="project-overlay">
                 <h3>Văn phòng công ty</h3>
                 <p>Thiết kế nội thất | 200m²</p>
               </div>
             </div>
-            <div class="project-item" data-modal="pj-4">
+            <div class="project-item" data-detail="pj-4">
               <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Nhà xưởng kết cấu thép">
               <div class="project-overlay">
                 <h3>Nhà xưởng kết cấu thép</h3>
                 <p>KCN Long Hậu | 2000m²</p>
               </div>
             </div>
-            <div class="project-item" data-modal="pj-5">
+            <div class="project-item" data-detail="pj-5">
               <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cải tạo căn hộ">
               <div class="project-overlay">
                 <h3>Cải tạo căn hộ</h3>
                 <p>Sunrise City | 90m²</p>
               </div>
             </div>
-            <div class="project-item" data-modal="pj-6">
+            <div class="project-item" data-detail="pj-6">
               <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Khách sạn boutique">
               <div class="project-overlay">
                 <h3>Khách sạn boutique</h3>
@@ -1318,7 +1351,6 @@
           <p class="section-sub">Chúng tôi sẵn sàng lắng nghe và tư vấn cho dự án của bạn. Hãy để lại thông tin, chúng tôi sẽ liên hệ lại trong thời gian sớm nhất.</p>
 
           <div class="contact-layout">
-            <!-- Cột 1: Thông tin liên hệ + bản đồ -->
             <div>
               <div class="contact-info">
                 <h2>Thông tin liên hệ</h2>
@@ -1357,7 +1389,6 @@
               </div>
             </div>
 
-            <!-- Cột 2: Form nhập thông tin -->
             <div class="contact-form-wrapper">
               <h2>Gửi yêu cầu tư vấn</h2>
               <p class="form-sub">Điền thông tin bên dưới, HMB Agency sẽ liên hệ lại với bạn trong vòng 24h.</p>
@@ -1417,14 +1448,6 @@
     const menuToggle = document.getElementById('menuToggle');
     const logoBtn = document.getElementById('logoBtn');
 
-    const modalBackdrop = document.getElementById('modalBackdrop');
-    const modalClose = document.getElementById('modalClose');
-    const modalImg = document.getElementById('modalImg');
-    const modalTag = document.getElementById('modalTag');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalContent = document.getElementById('modalContent');
-    const modalContactBtn = document.getElementById('modalContactBtn');
-
     // ====== MENU ======
     function closeMenu() {
       mainNav.classList.remove('open');
@@ -1448,58 +1471,66 @@
       }
     });
 
-    // ====== MODAL ======
-    function openModal(id) {
-      const data = modalData[id];
-      if (!data) return;
+    // ====== TẠO TRANG CHI TIẾT ======
+    function buildDetailPage(id) {
+      const data = detailData[id];
+      if (!data) return pages.home;
 
-      modalImg.src = data.img;
-      modalImg.alt = data.title;
-      modalTag.textContent = data.tag;
-      modalTitle.textContent = data.title;
-      modalContent.innerHTML = data.content;
+      // Kiểm tra có phải dự án không (prefix pj-)
+      const isProject = id.startsWith('pj-');
+      // 5 ảnh nhỏ: ảnh chính + 4 ảnh đầu trong gallery (dùng lại)
+      const thumbImages = isProject
+        ? [data.img, ...galleryImages.slice(0, 4)]
+        : [data.img, ...galleryImages.slice(0, 4)];
 
-      modalBackdrop.classList.add('open');
-      modalBackdrop.setAttribute('aria-hidden', 'false');
-      document.body.classList.add('modal-open');
+      const thumbsHTML = thumbImages.map((img, index) => `
+        <div class="detail-thumb ${index === 0 ? 'active' : ''}" data-thumb-index="${index}">
+          <img src="${img}" alt="Ảnh ${index + 1}">
+        </div>
+      `).join('');
+
+      return `
+        <div class="page detail-page">
+          <a href="#" class="back-btn" id="backBtn">
+            <i class="fas fa-arrow-left"></i> Quay lại
+          </a>
+
+          <div class="detail-hero">
+            <img id="detailHeroImg" src="${data.img}" alt="${data.title}">
+          </div>
+
+          <div class="detail-thumbs" id="detailThumbs">
+            ${thumbsHTML}
+          </div>
+
+          <span class="detail-tag">${data.tag}</span>
+          <h1 class="detail-title">${data.title}</h1>
+
+          <div class="detail-body">
+            ${data.content}
+          </div>
+
+          <div class="detail-actions">
+            <a href="tel:0855555140" class="btn"><i class="fas fa-phone-alt"></i> Gọi tư vấn: 0855 555 140</a>
+            <a href="#" class="btn btn-outline" data-page-link="contact"><i class="fas fa-paper-plane"></i> Gửi yêu cầu</a>
+          </div>
+        </div>
+      `;
     }
 
-    function closeModal() {
-      modalBackdrop.classList.remove('open');
-      modalBackdrop.setAttribute('aria-hidden', 'true');
-      document.body.classList.remove('modal-open');
-    }
+    // ====== GẮN SỰ KIỆN CHO 5 ẢNH NHỎ (CLICK ĐỔI ẢNH CHÍNH) ======
+    function bindThumbnails() {
+      const thumbs = document.querySelectorAll('.detail-thumb');
+      const heroImg = document.getElementById('detailHeroImg');
+      if (!heroImg || !thumbs.length) return;
 
-    modalClose.addEventListener('click', closeModal);
+      thumbs.forEach(thumb => {
+        thumb.addEventListener('click', () => {
+          const imgSrc = thumb.querySelector('img').src;
+          heroImg.src = imgSrc;
 
-    modalBackdrop.addEventListener('click', (e) => {
-      if (e.target === modalBackdrop) closeModal();
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modalBackdrop.classList.contains('open')) {
-        closeModal();
-      }
-    });
-
-    modalContactBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      closeModal();
-      window.location.hash = 'contact';
-    });
-
-    function bindModalTriggers() {
-      document.querySelectorAll('[data-modal]').forEach(card => {
-        card.addEventListener('click', () => {
-          openModal(card.dataset.modal);
-        });
-        card.setAttribute('tabindex', '0');
-        card.setAttribute('role', 'button');
-        card.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            openModal(card.dataset.modal);
-          }
+          thumbs.forEach(t => t.classList.remove('active'));
+          thumb.classList.add('active');
         });
       });
     }
@@ -1514,7 +1545,6 @@
       form.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        // Kiểm tra các trường bắt buộc
         const fullName = form.fullName.value.trim();
         const phone = form.phone.value.trim();
 
@@ -1529,30 +1559,72 @@
           return;
         }
 
-        // Hiển thị thông báo thành công (demo)
         successBox.classList.add('show');
         form.reset();
 
-        // Tự ẩn sau 6 giây
         setTimeout(() => {
           successBox.classList.remove('show');
         }, 6000);
 
-        // Cuộn thông báo vào tầm nhìn
         successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+    }
+
+    // ====== GẮN SỰ KIỆN CHO THẺ CÓ data-detail ======
+    function bindDetailTriggers() {
+      document.querySelectorAll('[data-detail]').forEach(card => {
+        card.addEventListener('click', () => {
+          window.location.hash = 'detail-' + card.dataset.detail;
+        });
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('role', 'button');
+        card.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            window.location.hash = 'detail-' + card.dataset.detail;
+          }
+        });
+      });
+    }
+
+    // ====== GẮN NÚT QUAY LẠI ======
+    function bindBackButton() {
+      const backBtn = document.getElementById('backBtn');
+      if (!backBtn) return;
+
+      backBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (window.history.length > 1) {
+          window.history.back();
+        } else {
+          window.location.hash = 'home';
+        }
       });
     }
 
     // ====== RENDER ======
     function renderPage() {
       const hash = window.location.hash.substring(1) || 'home';
-      const pageContent = pages[hash] || pages.home;
+
+      let pageContent;
+      let activePage = hash;
+
+      if (hash.startsWith('detail-')) {
+        const detailId = hash.replace('detail-', '');
+        pageContent = buildDetailPage(detailId);
+
+        if (detailId.startsWith('why-')) activePage = 'home';
+        else if (detailId.startsWith('sv-')) activePage = 'services';
+        else if (detailId.startsWith('pj-')) activePage = 'projects';
+      } else {
+        pageContent = pages[hash] || pages.home;
+      }
 
       mainContent.innerHTML = pageContent;
 
       document.querySelectorAll('#main-nav a').forEach(link => {
         link.classList.remove('active');
-        if (link.dataset.page === hash) {
+        if (link.dataset.page === activePage) {
           link.classList.add('active');
         }
       });
@@ -1566,8 +1638,10 @@
         });
       });
 
-      bindModalTriggers();
+      bindDetailTriggers();
       bindContactForm();
+      bindBackButton();
+      bindThumbnails();
 
       closeMenu();
       window.scrollTo({ top: 0, behavior: 'smooth' });
